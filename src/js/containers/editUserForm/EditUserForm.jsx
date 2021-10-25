@@ -154,7 +154,7 @@ const EditUserForm = () => {
 						{
 							key: 'isMinLengthError',
 							value: phone.displayErrors.isMinLengthError,
-							args: { num: 9, type: 'numbers' },
+							args: { num: 8, type: 'numbers' },
 						},
 					]}
 					required

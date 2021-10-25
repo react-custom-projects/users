@@ -110,7 +110,7 @@ const reducer = (state = initialState, action) => {
 		case SET_EDIT_USER_FORM_PHONE_PROPERTIES: {
 			const displayErrors = {
 				isRequiredError: validateRequired(action.value),
-				isMinLengthError: validateMinLength(action.value, 9),
+				isMinLengthError: validateMinLength(action.value, 8),
 			};
 
 			return updateObject(state, {

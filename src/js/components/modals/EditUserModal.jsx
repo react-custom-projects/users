@@ -1,8 +1,10 @@
 import React from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 //actions
-import { hideEditUserModal } from '../../store/usersSlice/actions/UsersActions';
-import { resetEditUserForm } from '../../store/usersSlice/actions/EditUserFormActions';
+import {
+	closeEditUserModal,
+	editSelectedUserData,
+} from '../../store/usersSlice/actions/UsersActions';
 //selectors
 import { getAppIsEditUserModal } from '../../store/usersSlice/selectors/UsersSelectors';
 import { getIsEditUserFormValid } from '../../store/usersSlice/selectors/EditUserFormSelectors';
@@ -17,12 +19,11 @@ const EditUserModal = () => {
 		isFormValid = useSelector((state) => getIsEditUserFormValid({ state }));
 
 	const closeModal = () => {
-		dispatch(hideEditUserModal());
-		dispatch(resetEditUserForm());
+		dispatch(closeEditUserModal());
 	};
 
 	const editUserDataHandler = () => {
-		console.log('Modal footer button was clicked');
+		dispatch(editSelectedUserData());
 	};
 
 	const footerButtons = [
@@ -43,6 +44,7 @@ const EditUserModal = () => {
 			title="Edit user data"
 			headerCloseHandler={closeModal}
 			footerBtns={footerButtons}
+			isCancelClickOnOverlay
 		>
 			<EditUserForm />
 		</Modal>

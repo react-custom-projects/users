@@ -67,7 +67,7 @@ export const validateChar = (inputValue) => {
 	let isError = false;
 	if (inputValue.trim().length === 0) {
 		isError = false;
-	} else if (!/^[A-Za-z]+$/.test(inputValue.trim())) {
+	} else if (!/^[a-zA-Z\s]*$/.test(inputValue.trim())) {
 		isError = true;
 	}
 	return isError;

@@ -6,8 +6,17 @@ import classes from './UsersPage.scss';
 import {
 	fetchUsersList,
 	resetAppReducer,
+	setRequiredEditUserId,
 	showEditUserModal,
 } from '../../../store/usersSlice/actions/UsersActions';
+import {
+	setEditUserFormCityProperties,
+	setEditUserFormCompanyNameProperties,
+	setEditUserFormEmailProperties,
+	setEditUserFormNameProperties,
+	setEditUserFormPhoneProperties,
+	setEditUserFormWebsiteProperties,
+} from '../../../store/usersSlice/actions/EditUserFormActions';
 //selectors
 import {
 	getAppIsFetching,
@@ -31,7 +40,26 @@ const UsersPage = () => {
 		};
 	}, [dispatch]);
 
-	const doubleClickHandler = (id) => {
+	const doubleClickHandler = ({ id, name, email, address: { city }, phone, website, company }) => {
+		dispatch(setRequiredEditUserId(id));
+		if (name) {
+			dispatch(setEditUserFormNameProperties(name));
+		}
+		if (email) {
+			dispatch(setEditUserFormEmailProperties(email));
+		}
+		if (city) {
+			dispatch(setEditUserFormCityProperties(city));
+		}
+		if (phone) {
+			dispatch(setEditUserFormPhoneProperties(phone));
+		}
+		if (website) {
+			dispatch(setEditUserFormWebsiteProperties(website));
+		}
+		if (company.name) {
+			dispatch(setEditUserFormCompanyNameProperties(company.name));
+		}
 		dispatch(showEditUserModal());
 	};
 
@@ -44,7 +72,7 @@ const UsersPage = () => {
 					{usersList.map((el) => (
 						<User
 							key={el.id}
-							doubleClickHandler={() => doubleClickHandler(el.id)}
+							doubleClickHandler={() => doubleClickHandler(el)}
 							phone={el.phone}
 							companyName={el.company.name}
 							name={el.name}
