@@ -3,7 +3,7 @@ import { getHomePageUrl, getNotFoundPageUrl, getUsersPageUrl } from './AppUrls';
 //pages
 import HomePage from '../../containers/pages/HomePage';
 import UsersPage from '../../containers/pages/UsersPage';
-import NotFoundPage from '../../containers/pages/NotFoundPage';
+import NotFoundPage from '../../containers/pages/notFoundPage/NotFoundPage';
 
 export const routes = [
 	{
