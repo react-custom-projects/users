@@ -1,0 +1,29 @@
+@import "../../../scss/generic/variables";
+
+.wrapper {
+  max-width: 310px;
+  width: 100%;
+
+  .name {
+    font-size: 16px;
+    text-transform: capitalize;
+    margin: 0;
+    padding: 10px;
+  }
+
+  .body-wrapper {
+    color: $white;
+    background-color: $primary;
+    text-align: center;
+    font-size: 14px;
+    padding: 10px;
+
+    .text {
+      margin: 0 0 10px 0;
+
+      &:last-of-type {
+        margin: 0;
+      }
+    }
+  }
+}

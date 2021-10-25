@@ -4,7 +4,7 @@ import PropTypes from 'prop-types';
 import styles from './Card.scss';
 
 const Card = ({ children, classes }) => (
-	<div className={`${styles.shadowCard} ${classes}`}>{children}</div>
+	<div className={`${styles.shadowCard} ${classes ? classes : ''}`}>{children}</div>
 );
 
 Card.propTypes = {
