@@ -1,9 +1,12 @@
 import React from 'react';
+import { Route, Switch } from 'react-router-dom';
 import { hot } from 'react-hot-loader/root';
 //error boundary
 import { ErrorBoundary } from 'react-error-boundary';
 //error boundary fallback
 import ErrorBoundaryFallback from './js/generic/ErrorBoundaryFallback';
+//routes
+import { routes } from './js/routing/routingConstants/RoutesConfig';
 
 const App = () => (
 	<ErrorBoundary
@@ -13,7 +16,16 @@ const App = () => (
 			console.log('Try again clicked');
 		}}
 	>
-		<div>mango</div>
+		<Switch>
+			{routes.map((el, i) => (
+				<Route
+					key={i}
+					path={el.path}
+					exact={el.exact}
+					render={(propRouter) => <el.Component {...propRouter} />}
+				/>
+			))}
+		</Switch>
 	</ErrorBoundary>
 );
 
