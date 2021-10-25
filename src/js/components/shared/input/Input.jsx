@@ -35,6 +35,7 @@ const Input = ({
 			isMinLengthError: ({ num, type }) => ErrorMessages.getMinLengthErrorMessage({ num, type }),
 			isMaxLengthError: ({ num, type }) => ErrorMessages.getMaxLengthErrorMessage({ num, type }),
 			isCharError: ErrorMessages.getCharErrorMessage(),
+			isLinkError: ErrorMessages.getLinkErrorMessage(),
 		};
 	let inputElement = null,
 		checkboxWrapperClasses = [' align-items-center'];
@@ -180,8 +181,8 @@ const Input = ({
 					<div
 						className={`${classes.inputContainer} ${
 							elementType === 'file-input' ? classes.fileInputWrapper : ''
-						} ${icon && elementType === 'input' ? 'inputWithIcon' : ''} ${
-							outlined ? 'outlinedInputContainer' : ''
+						} ${icon && elementType === 'input' ? classes.inputWithIcon : ''} ${
+							outlined ? classes.outlinedInputContainer : ''
 						}`}
 						style={{ marginTop: elementType === 'textarea' ? 10 : 'none' }}
 					>

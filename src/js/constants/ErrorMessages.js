@@ -14,6 +14,9 @@ class ErrorMessages {
 	static getNumErrorMessage() {
 		return 'Needs to be a number.';
 	}
+	static getLinkErrorMessage() {
+		return 'Please enter a valid link';
+	}
 	static getPhoneNumErrorMessage() {
 		return 'Please enter a valid phone number.';
 	}

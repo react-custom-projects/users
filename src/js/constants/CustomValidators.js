@@ -1,10 +1,10 @@
 // used to check if the given field is required
-const validateRequired = (inputValue) => {
+export const validateRequired = (inputValue) => {
 	return inputValue.trim() === '';
 };
 
 // used to validate the minLength of the given field
-const validateMinLength = (inputValue, number) => {
+export const validateMinLength = (inputValue, number) => {
 	let isError = false;
 	if (inputValue.trim().length === 0) {
 		isError = false;
@@ -15,7 +15,7 @@ const validateMinLength = (inputValue, number) => {
 };
 
 // used to validate the maxLength of the given field
-const validateMaxLength = (inputValue, number) => {
+export const validateMaxLength = (inputValue, number) => {
 	let isError = false;
 	if (inputValue.trim().length === 0) {
 		isError = false;
@@ -26,7 +26,7 @@ const validateMaxLength = (inputValue, number) => {
 };
 
 // used to validate the given url
-const validateUrl = (inputValue) => {
+export const validateUrl = (inputValue) => {
 	let isError = false;
 	if (inputValue.trim().length === 0) {
 		isError = false;
@@ -41,7 +41,7 @@ const validateUrl = (inputValue) => {
 };
 
 // used to validate regEx
-const validateRegEx = (inputValue, regEx) => {
+export const validateRegEx = (inputValue, regEx) => {
 	let isError = false;
 	if (inputValue.trim().length === 0) {
 		isError = false;
@@ -52,7 +52,7 @@ const validateRegEx = (inputValue, regEx) => {
 };
 
 // used to check if number
-const validateNumber = (inputValue) => {
+export const validateNumber = (inputValue) => {
 	let isError = false;
 	if (inputValue.trim().length === 0) {
 		isError = false;
@@ -63,7 +63,7 @@ const validateNumber = (inputValue) => {
 };
 
 // used to check if character
-const validateChar = (inputValue) => {
+export const validateChar = (inputValue) => {
 	let isError = false;
 	if (inputValue.trim().length === 0) {
 		isError = false;
@@ -74,7 +74,7 @@ const validateChar = (inputValue) => {
 };
 
 // used to check alpha numeric with dots (.)
-const validateAlphaNumeric = (inputValue) => {
+export const validateAlphaNumeric = (inputValue) => {
 	let isError = false;
 	if (inputValue.trim().length === 0) {
 		isError = false;
@@ -84,12 +84,27 @@ const validateAlphaNumeric = (inputValue) => {
 	return isError;
 };
 
-const validateEmail = (inputValue) => {
+export const validateEmail = (inputValue) => {
 	let isError = false;
 	if (inputValue.trim().length === 0) {
 		isError = false;
 	} else if (
 		!/^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?(?:\.[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?)*$/.test(
+			inputValue.trim()
+		)
+	) {
+		isError = true;
+	}
+	return isError;
+};
+
+// used to validate link
+export const validateLink = (inputValue) => {
+	let isError = false;
+	if (inputValue.trim().length === 0) {
+		isError = false;
+	} else if (
+		!/(https?:\/\/(?:www\.|(?!www))[a-zA-Z0-9][a-zA-Z0-9-]+[a-zA-Z0-9]\.[^\s]{2,}|www\.[a-zA-Z0-9][a-zA-Z0-9-]+[a-zA-Z0-9]\.[^\s]{2,}|https?:\/\/(?:www\.|(?!www))[a-zA-Z0-9]+\.[^\s]{2,}|www\.[a-zA-Z0-9]+\.[^\s]{2,})/.test(
 			inputValue.trim()
 		)
 	) {
