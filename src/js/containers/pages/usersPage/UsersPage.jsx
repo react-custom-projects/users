@@ -3,12 +3,17 @@ import { useDispatch, useSelector } from 'react-redux';
 //styles
 import classes from './UsersPage.scss';
 //actions
-import { fetchUsersList, resetAppReducer } from '../../../store/app/actions/AppActions';
+import {
+	fetchUsersList,
+	resetAppReducer,
+	showEditUserModal,
+} from '../../../store/app/actions/AppActions';
 //selectors
 import { getAppIsFetching, getAppUsersList } from '../../../store/app/selectors/AppSelectors';
 //components
 import LoadingIcon from '../../../components/shared/loadingIcon/LoadingIcon';
 import User from '../../../components/user/User';
+import EditUserModal from '../../../components/modals/EditUserModal';
 
 const UsersPage = () => {
 	const dispatch = useDispatch(),
@@ -24,7 +29,7 @@ const UsersPage = () => {
 	}, [dispatch]);
 
 	const doubleClickHandler = (id) => {
-		console.log('double clicked', id);
+		dispatch(showEditUserModal());
 	};
 
 	return (
@@ -47,6 +52,7 @@ const UsersPage = () => {
 					))}
 				</div>
 			)}
+			<EditUserModal />
 		</div>
 	);
 };

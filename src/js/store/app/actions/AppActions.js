@@ -4,10 +4,12 @@ import { toast } from 'react-toastify';
 import { data } from '../../../constants/AppConstants';
 //action types
 import {
+	HIDE_EDIT_USER_MODAL,
 	RESET_APP_REDUCER,
 	SET_IS_FETCHING_USERS_LIST_FALSE,
 	SET_IS_FETCHING_USERS_LIST_TRUE,
 	SET_USERS_LIST,
+	SHOW_EDIT_USER_MODAL,
 } from '../appActionTypes';
 
 const setUsersList = (list) => ({
@@ -30,6 +32,10 @@ export const fetchUsersList = () => async (dispatch) => {
 		dispatch(setIsFetchingUsersListFalse());
 	}
 };
+
+export const showEditUserModal = () => ({ type: SHOW_EDIT_USER_MODAL });
+
+export const hideEditUserModal = () => ({ type: HIDE_EDIT_USER_MODAL });
 
 export const resetAppReducer = () => ({
 	type: RESET_APP_REDUCER,
