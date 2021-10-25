@@ -7,10 +7,10 @@ module.exports = {
 	jsSubDirectory: 'js/',
 	cssSubDirectory: 'css/',
 	metaInfo: {
-		title: 'Adam Morsi',
-		description: 'description',
+		title: 'Amdocs UI test',
+		description: 'To measure my skills',
 		url: 'https://example.com/',
 		metaImageName: 'metaImage.jpg',
-		keywords: 'add you keywords',
+		keywords: 'amdocs, UI test',
 	},
 };

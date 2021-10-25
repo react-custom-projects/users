@@ -87,9 +87,9 @@ module.exports = (env, options) => {
 				chunkFilename: cssSubDirectory + '[id].[contenthash:8].css',
 			}),
 			// remove un-used styles
-			new PurgeCSSPlugin({
-				paths: glob.sync(`${PATHS.src}/**/*`, { nodir: true }),
-			}),
+			/*new PurgeCSSPlugin({
+				paths: glob.sync(`${PATHS.src}/!**!/!*`, { nodir: true }),
+			}),*/
 		],
 	});
 };

@@ -1,14 +1,10 @@
-import { TEST_ACTION } from '../appActionTypes';
+//constants
 import { updateObject } from '../../../constants/Helpers';
 
-const initialState = {
-	testString: 'Initial test',
-};
+const initialState = {};
 
 const reducer = (state = initialState, action) => {
 	switch (action.type) {
-		case TEST_ACTION:
-			return updateObject(state, { testString: 'Final test' });
 		default:
 			return state;
 	}
