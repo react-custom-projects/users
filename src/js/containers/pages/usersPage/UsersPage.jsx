@@ -7,9 +7,12 @@ import {
 	fetchUsersList,
 	resetAppReducer,
 	showEditUserModal,
-} from '../../../store/app/actions/AppActions';
+} from '../../../store/usersSlice/actions/UsersActions';
 //selectors
-import { getAppIsFetching, getAppUsersList } from '../../../store/app/selectors/AppSelectors';
+import {
+	getAppIsFetching,
+	getAppUsersList,
+} from '../../../store/usersSlice/selectors/UsersSelectors';
 //components
 import LoadingIcon from '../../../components/shared/loadingIcon/LoadingIcon';
 import User from '../../../components/user/User';

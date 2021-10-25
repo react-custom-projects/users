@@ -1,9 +1,9 @@
 import React from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 //actions
-import { hideEditUserModal } from '../../store/app/actions/AppActions';
+import { hideEditUserModal } from '../../store/usersSlice/actions/UsersActions';
 //selectors
-import { getAppIsEditUserModal } from '../../store/app/selectors/AppSelectors';
+import { getAppIsEditUserModal } from '../../store/usersSlice/selectors/UsersSelectors';
 //components
 import Modal from '../shared/modal/Modal';
 

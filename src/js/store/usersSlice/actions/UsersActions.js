@@ -10,7 +10,7 @@ import {
 	SET_IS_FETCHING_USERS_LIST_TRUE,
 	SET_USERS_LIST,
 	SHOW_EDIT_USER_MODAL,
-} from '../appActionTypes';
+} from '../UsersActionTypes';
 
 const setUsersList = (list) => ({
 	type: SET_USERS_LIST,
