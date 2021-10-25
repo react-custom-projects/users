@@ -1,5 +1,6 @@
-//used to check if the given file exists
-const fs = require('fs'),
+const path = require('path'),
+	//used to check if the given file exists
+	fs = require('fs'),
 	//dotenv
 	dotenv = require('dotenv'),
 	//plugins
@@ -16,7 +17,11 @@ const fs = require('fs'),
 		metaInfo: { title, description, url, keywords, metaImageName },
 	} = require('./constants'),
 	PATHS = require('./paths'),
-	fullDevServerUrl = devServer + ':' + port + '/';
+	fullDevServerUrl = devServer + ':' + port + '/',
+	REACT_TOASTIFY_PATH = path.resolve(
+		PATHS.projectPath,
+		'./node_modules/react-toastify/dist/ReactToastify.css'
+	);
 
 module.exports = (env, options) => {
 	// the mode variable is passed in package.json scripts (development, production)
@@ -64,9 +69,6 @@ module.exports = (env, options) => {
 		},
 		resolve: {
 			extensions: ['*', '.js', '.jsx'],
-			fallback: {
-				crypto: false,
-			},
 		},
 		module: {
 			rules: [
@@ -90,6 +92,18 @@ module.exports = (env, options) => {
 						},
 					},
 					type: 'javascript/auto',
+				},
+				{
+					test: /\.s?[ac]ss$/,
+					include: [REACT_TOASTIFY_PATH],
+					use: [
+						{
+							loader: 'style-loader',
+						},
+						{
+							loader: 'css-loader',
+						},
+					],
 				},
 				{
 					test: /\.s?[ac]ss$/,
