@@ -1,7 +1,7 @@
 //URLs
 import { getHomePageUrl, getNotFoundPageUrl, getUsersPageUrl } from './AppUrls';
 //pages
-import HomePage from '../../containers/pages/HomePage';
+import HomePage from '../../containers/pages/homePage/HomePage';
 import UsersPage from '../../containers/pages/usersPage/UsersPage';
 import NotFoundPage from '../../containers/pages/notFoundPage/NotFoundPage';
 
