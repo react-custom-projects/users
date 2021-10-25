@@ -38,7 +38,7 @@ const setIsFetchingUsersListFalse = () => ({ type: SET_IS_FETCHING_USERS_LIST_FA
 export const fetchUsersList = () => async (dispatch) => {
 	dispatch(setIsFetchingUsersListTrue());
 	try {
-		dispatch(setUsersList(data));
+		await dispatch(setUsersList(data));
 	} catch (err) {
 		toast.error('Something went wrong');
 	} finally {
