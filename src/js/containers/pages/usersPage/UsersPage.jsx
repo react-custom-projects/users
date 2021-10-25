@@ -1,4 +1,5 @@
 import React, { useEffect } from 'react';
+import { Link } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 //styles
 import classes from './UsersPage.scss';
@@ -22,6 +23,8 @@ import {
 	getAppIsFetching,
 	getAppUsersList,
 } from '../../../store/usersSlice/selectors/UsersSelectors';
+//routes
+import { getHomePageUrl } from '../../../routing/routingConstants/AppUrls';
 //components
 import LoadingIcon from '../../../components/shared/loadingIcon/LoadingIcon';
 import User from '../../../components/user/User';
@@ -68,20 +71,27 @@ const UsersPage = () => {
 			{isFetching ? (
 				<LoadingIcon />
 			) : (
-				<div className={classes.wrapper}>
-					{usersList.map((el) => (
-						<User
-							key={el.id}
-							doubleClickHandler={() => doubleClickHandler(el)}
-							phone={el.phone}
-							companyName={el.company.name}
-							name={el.name}
-							email={el.email}
-							website={el.website}
-							city={el.address.city}
-						/>
-					))}
-				</div>
+				<>
+					<p>
+						<Link className={classes.link} to={getHomePageUrl()}>
+							<i className="far fa-arrow-alt-left" /> Go back home
+						</Link>
+					</p>
+					<div className={classes.wrapper}>
+						{usersList.map((el) => (
+							<User
+								key={el.id}
+								doubleClickHandler={() => doubleClickHandler(el)}
+								phone={el.phone}
+								companyName={el.company.name}
+								name={el.name}
+								email={el.email}
+								website={el.website}
+								city={el.address.city}
+							/>
+						))}
+					</div>
+				</>
 			)}
 			<EditUserModal />
 		</div>

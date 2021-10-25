@@ -12,3 +12,11 @@
     flex-wrap: wrap;
   }
 }
+
+.link {
+  text-decoration: none;
+
+  &:hover {
+    text-decoration: underline;
+  }
+}
