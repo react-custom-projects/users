@@ -69,7 +69,9 @@ const UsersPage = () => {
 	return (
 		<div className="container">
 			{isFetching ? (
-				<LoadingIcon />
+				<div className="d-flex justify-content-center">
+					<LoadingIcon />
+				</div>
 			) : (
 				<>
 					<p>

@@ -1,7 +1,3 @@
-//toast
-import { toast } from 'react-toastify';
-//constants
-import { data } from '../../../constants/AppConstants';
 //action types
 import {
 	EDIT_SELECTED_USER_DATA,
@@ -24,6 +20,8 @@ import {
 } from '../selectors/EditUserFormSelectors';
 //actions
 import { resetEditUserForm } from './EditUserFormActions';
+//services
+import UsersService from '../../../services/UsersService';
 
 const setUsersList = (list) => ({
 	type: SET_USERS_LIST,
@@ -38,9 +36,10 @@ const setIsFetchingUsersListFalse = () => ({ type: SET_IS_FETCHING_USERS_LIST_FA
 export const fetchUsersList = () => async (dispatch) => {
 	dispatch(setIsFetchingUsersListTrue());
 	try {
-		await dispatch(setUsersList(data));
+		const res = await UsersService.fetchUsersList();
+		dispatch(setUsersList(res.data));
 	} catch (err) {
-		toast.error('Something went wrong');
+		console.log(err);
 	} finally {
 		dispatch(setIsFetchingUsersListFalse());
 	}
