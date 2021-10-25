@@ -8,6 +8,11 @@ body,
 	height: 100%;
 }
 
+#root {
+	overflow-y: auto;
+	-webkit-overflow-scrolling: touch;
+}
+
 /**
  * Use a better box model (opinionated).
  */

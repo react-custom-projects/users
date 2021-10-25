@@ -8,7 +8,7 @@ import { getAppIsEditUserModal } from '../../store/usersSlice/selectors/UsersSel
 //components
 import Modal from '../shared/modal/Modal';
 //containers
-import EditUserForm from '../../containers/EditUserForm';
+import EditUserForm from '../../containers/editUserForm/EditUserForm';
 
 const EditUserModal = () => {
 	const dispatch = useDispatch(),

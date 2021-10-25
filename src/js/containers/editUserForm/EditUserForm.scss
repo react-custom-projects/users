@@ -1,0 +1,9 @@
+.wrapper {
+  padding: 20px 0;
+
+  .row {
+    &:not(:last-of-type) {
+      padding-bottom: 15px;
+    }
+  }
+}
