@@ -23,6 +23,10 @@ const UsersPage = () => {
 		};
 	}, [dispatch]);
 
+	const doubleClickHandler = (id) => {
+		console.log('double clicked', id);
+	};
+
 	return (
 		<div className="container">
 			{isFetching ? (
@@ -32,6 +36,7 @@ const UsersPage = () => {
 					{usersList.map((el) => (
 						<User
 							key={el.id}
+							doubleClickHandler={() => doubleClickHandler(el.id)}
 							phone={el.phone}
 							companyName={el.company.name}
 							name={el.name}
