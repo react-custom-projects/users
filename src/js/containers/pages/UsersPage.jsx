@@ -6,6 +6,7 @@ import { fetchUsersList, resetAppReducer } from '../../store/app/actions/AppActi
 import { getAppIsFetching, getAppUsersList } from '../../store/app/selectors/AppSelectors';
 //components
 import LoadingIcon from '../../components/shared/loadingIcon/LoadingIcon';
+import Card from '../../components/shared/card/Card';
 
 const UsersPage = () => {
 	const dispatch = useDispatch(),
@@ -27,7 +28,7 @@ const UsersPage = () => {
 			) : (
 				<>
 					{usersList.map((el) => (
-						<div key={el.id}>{el.name}</div>
+						<Card key={el.id}>{el.name}</Card>
 					))}
 				</>
 			)}
