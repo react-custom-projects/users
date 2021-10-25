@@ -3,12 +3,20 @@
 .wrapper {
   max-width: 310px;
   width: 100%;
+  cursor: pointer;
+  border: 1px solid transparent;
+
+  &:hover {
+    border: 1px solid $black;
+  }
 
   .name {
     font-size: 16px;
     text-transform: capitalize;
+    color: $black;
     margin: 0;
     padding: 10px;
+    background-color: $aquamarine;
   }
 
   .body-wrapper {
